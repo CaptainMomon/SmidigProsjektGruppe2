@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottombaritem_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/bottombaritem_groups"
+        android:icon="@drawable/ic_group_black_24dp"
+        android:title="@string/title_groups"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/bottombaritem_chat"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:title="@string/title_chat"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/bottombaritem_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_notifications"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/bottombaritem_drawermenu"
+        android:icon="@drawable/ic_menu_black_24dp"
+        android:title="@string/title_menu"
+        app:showAsAction="ifRoom"/>
+
+</menu>

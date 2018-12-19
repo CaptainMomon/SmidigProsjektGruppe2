@@ -12,8 +12,9 @@
         android:layout_width="289dp"
         android:layout_height="199dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="47dp"
         android:adjustViewBounds="false"
         app:srcCompat="@drawable/logo2kopi" />
 

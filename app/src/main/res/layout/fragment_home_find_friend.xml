@@ -15,29 +15,29 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/result_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:background="@color/colorPrimary"
                 app:tabTextAppearance="@style/MineCustomTabText"
-                app:tabPaddingEnd="0dp"
-                app:tabPaddingStart="0dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                app:tabGravity="center"
                 app:tabIndicatorColor="@color/colorPrimary"
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="@color/colorPrimaryDark"
-                app:tabTextColor="@color/com_facebook_blue" />
+                app:tabTextColor="@color/colorAccent" />
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.design.widget.CoordinatorLayout>
 

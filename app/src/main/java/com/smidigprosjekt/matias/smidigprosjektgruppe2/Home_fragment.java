@@ -3,20 +3,20 @@ package com.smidigprosjekt.matias.smidigprosjektgruppe2;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Home_fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Home_fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Home_fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,15 +33,6 @@ public class Home_fragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Home_fragment newInstance(String param1, String param2) {
         Home_fragment fragment = new Home_fragment();
         Bundle args = new Bundle();
@@ -54,55 +45,69 @@ public class Home_fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        setRetainInstance(true);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_fragment, container, false);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+        View view = inflater.inflate(R.layout.fragment_home_find_friend,container, false);
+        // Setting ViewPager for each Tabs
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+        // Set Tabs inside Toolbar
+        TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs);
+        tabs.setupWithViewPager(viewPager);
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
 
+        return view;
+
+    }
+    // Add Fragments to Tabs
+    private void setupViewPager(ViewPager viewPager) {
+
+        Adapter adapter = new Adapter(getChildFragmentManager());
+        adapter.addFragment(new home_find_friend(), "Finn Venner");
+        adapter.addFragment(new home_find_group(), "Finn Grupper");
+        viewPager.setAdapter(adapter);
+
+    }
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    static class Adapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public Adapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
     }
 }

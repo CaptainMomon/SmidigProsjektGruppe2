@@ -73,7 +73,7 @@ public class Group_fragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
+    /*
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -83,7 +83,7 @@ public class Group_fragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

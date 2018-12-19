@@ -19,25 +19,20 @@
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/result_tabs"
+                android:background="@color/bgBottomNavigation"
+                app:tabTextColor="@color/bgBottomNavigation"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorPrimary"
-                app:tabTextAppearance="@style/MineCustomTabText"
-                app:tabPaddingEnd="0dp"
-                app:tabPaddingStart="0dp"
-                app:tabIndicatorColor="@color/colorPrimary"
-                app:tabMode="scrollable"
-                app:tabSelectedTextColor="@color/colorPrimaryDark"
-                app:tabTextColor="@color/com_facebook_blue" />
+                app:tabMode="scrollable"/>
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.design.widget.CoordinatorLayout>
 

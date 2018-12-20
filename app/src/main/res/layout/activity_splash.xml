@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:text="Welcome to Jurassic Park"
+        android:text="Velkommen "
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold" />

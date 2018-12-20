@@ -19,7 +19,7 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:foreground="?attr/selectableItemBackground"
-        app:itemBackground="@color/bgBottomNavigation"
+        app:itemBackground="@color/colorPrimaryDark"
         app:itemIconTint="@android:color/white"
 
         app:itemTextColor="@android:color/white"
